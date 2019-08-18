@@ -12,7 +12,7 @@
       <div class="m-article-card__picture">
   {{/if}}
       <a href="{{url}}" class="m-article-card__picture-link" aria-label="Article"></a>
-      <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip" aria-label="Authors" data-tippy-content="{{t "Posted by"}} {{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "Among with") separator=" , "}}">
+      <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip" aria-label="Authors" data-tippy-content="Posted by {{primary_author.name}} {{authors autolink="false" from="2" prefix="<br>Among with " separator=" , "}}">
         {{#if primary_author.profile_image}}
           <div style="background-image: url({{primary_author.profile_image}});"></div>
         {{else}}
@@ -20,22 +20,27 @@
         {{/if}}
       </a>
       {{#if featured}}
-        <a href="{{url}}" class="m-article-card__featured js-tooltip" data-tippy-content="{{t "Featured"}}" aria-label="Article">
+        <a href="{{url}}" class="m-article-card__featured js-tooltip" data-tippy-content="Featured" aria-label="Article">
           <span class="icon-star"></span>
         </a>
       {{/if}}
     </div>
     {{#if primary_tag}}
       <div class="m-article-card__info">
-        <a href="{{primary_tag.url}}" class="m-article-card__tag">{{primary_tag.name}}</a>
-        <span>&nbsp;/&nbsp;</span>
-        <span><a href="{{tag.url}}">{{tags from="2" to="3"}}</a></span>
+        <p class="m-article-card__tag">
+          <span><a href="{{primary_tag.url}}">{{primary_tag.name}}</a></span>
+          <span>&nbsp;/&nbsp;</span>
+          <span><a href="{{tag.url}}">{{tags from="2" to="3"}}</a></span>
+        </p>
     {{else}}
       <div class="m-article-card__info no-tag">
     {{/if}}
+
       <a href="{{url}}" class="m-article-card__info-link">
         <div>
           <h2 class="m-article-card__title">{{title}}</h2>
+        </div>
+        <div>
           {{#if custom_excerpt}}
           <p class="m-article-card__smallexcerpt">{{{custom_excerpt}}}</p>
           {{else}}
@@ -43,8 +48,6 @@
           {{/if}}
         </div>
         <div class="m-article-card__timestamp">
-          <span>{{date published_at timeago="true"}}</span>
-          <span>&bull;</span>
           <span>{{reading_time minute=(t "1 min read") minutes=(t "% min read")}}</span>
           <span>&nbsp;</span>
           <span>{{t "by"}}</span>
@@ -73,9 +76,9 @@
   {{/is}}
   {{else}}
     <header class="m-heading no-margin">
-      <h3>{{t "No posts found"}}</h3>
+      <h3>No posts found</h3>
       <p>
-        {{t "Apparently there are no posts at the moment, check again later."}}
+        Apparently there are no posts at the moment, check again later.
       </p>
     </header>
 {{/foreach}}

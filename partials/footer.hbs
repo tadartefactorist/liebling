@@ -7,7 +7,16 @@ This footer template is shared across all the pages.
     <p class="m-footer-copyright">
       <span>{{@site.title}} &copy; {{date format="YYYY"}}</span>
       <span>&nbsp; &bull; &nbsp;</span>
-      <span>{{t "Published with"}} <a href="https://ghost.org" target="_blank" rel="noopener">Ghost</a></span>
+      <span><a href="/legal">{{t "terms"}}</a></span>
+    </p>
+    <p class="m-footer-links">
+      <span><a href="/about">{{t "about"}}</a></span>
+      <span>&nbsp; | &nbsp;</span>
+      <span><a href="/privacy">{{t "privacy"}}</a></span>
+      <span>&nbsp; | &nbsp;</span>
+      <span><a href="/contact">{{t "contact"}}</a></span>
+      <span>&nbsp; | &nbsp;</span>
+      <span><a href="/guidelines"  target="_blank" rel="noopener">Guidelines</a></span>
     </p>
     <nav class="m-footer-social">
       {{#if @site.facebook}}
