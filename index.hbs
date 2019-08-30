@@ -13,16 +13,20 @@ into the {body} of the default.hbs template --}}
   {{!-- Inject styles of the hero image to make it responsive --}}
   {{> hero background=@site.cover_image}}
   <div class="m-hero__content" data-aos="fade-down">
-    <h1 class="m-hero-title bigger">{{@site.title}}</h1>
-    {{#if @site.description}}
-    <p class="m-hero-description bigger">{{@site.description}}</p>
-    {{/if}}
-    {{#if @labs.subscribers}}
-    <a href="{{@site.url}}/subscribe" class="m-button filled">{{t "Subscribe"}}</a>
-    {{/if}}
+    <div class="m-hero__container">
+      <div class="m-hero__row">
+        <p class="m-hero-description bigger">{{@site.title}}
+        {{#if @site.description}}{{@site.description}}
+        {{/if}}</p>
+        <p class="m-hero-mission bigger contribute">{{t "Mission"}}
+          <a class="underline" href='/contribute/'><strong>{{t "Contribute"}}</strong></a>
+           {{t "We need you."}}
+      </p>
+      </div>
+    </div>
   </div>
   </header>
-  
+
   <main>
     <div class="l-content">
       <div class="l-wrapper" data-aos="fade-up" data-aos-delay="300">
@@ -51,9 +55,19 @@ into the {body} of the default.hbs template --}}
                         <div style="background-image: url({{asset "images/default-avatar-square-small.jpg"}});"></div>
                         {{/if}}
                       </a>
+                      <p class="m-featured-article__tag">
                       {{#if primary_tag}}
-                      <a href="{{primary_tag.url}}" class="m-featured-article__tag">{{primary_tag.name}}</a>
+                      <a href="{{primary_tag.url}}" >{{primary_tag.name}}</a>
+                      {{#if tags}}
+                      {{#foreach tags limit="1" from="2"}}
+                      <span>&bull;</span>
+                      <span>
+                      <a href="{{url}}" title="{{name}}">{{name}}</a>
+                       </span>
+                       {{/foreach}}
+                       {{/if}}
                       {{/if}}
+                      </p>
                     </div>
                     <div class="m-featured-article__ribbon">
                       <span class="icon-star"></span>

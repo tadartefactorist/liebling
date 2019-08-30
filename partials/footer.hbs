@@ -5,18 +5,18 @@ This footer template is shared across all the pages.
 <footer class="m-footer">
   <div class="m-footer__content">
     <p class="m-footer-copyright">
-      <span>{{@site.title}} &copy; {{date format="YYYY"}}</span>
+      <span><a href="/">VieuxMondes</a> &copy; {{date format="YYYY"}}</span>
       <span>&nbsp; &bull; &nbsp;</span>
-      <span><a href="/legal">{{t "terms"}}</a></span>
+      <span><a href="/legal">{{t "Legal"}}</a></span>
     </p>
     <p class="m-footer-links">
-      <span><a href="/about">{{t "about"}}</a></span>
+      <span><a href="/about/us">{{t "About"}}</a></span>
       <span>&nbsp; | &nbsp;</span>
-      <span><a href="/privacy">{{t "privacy"}}</a></span>
+      <span><a href="/about/privacy">{{t "Privacy"}}</a></span>
       <span>&nbsp; | &nbsp;</span>
-      <span><a href="/contact">{{t "contact"}}</a></span>
+      <span><a href="/contact">{{t "Contact"}}</a></span>
       <span>&nbsp; | &nbsp;</span>
-      <span><a href="/guidelines"  target="_blank" rel="noopener">Guidelines</a></span>
+      <span><a href="/about/community"  target="_blank" rel="noopener">Guidelines</a></span>
     </p>
     <nav class="m-footer-social">
       {{#if @site.facebook}}

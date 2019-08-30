@@ -1,0 +1,30 @@
+{{!--
+This template is used for the index page.
+It can be used also as the home page or the default page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+{{> header }}
+<div class="main-wrap">
+  <main>
+    <div class="l-content">
+      <div class="l-wrapper">
+        <div class="l-grid">
+
+          <article>
+            <div class="l-content">
+              <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
+                <div class="l-post-content">
+                  <div class="pos-relative js-post-content">
+                  {{#page}}
+                    {{content}}
+                  {{/page}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+  </main>
+</div>

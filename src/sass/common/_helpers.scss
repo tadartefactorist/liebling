@@ -37,6 +37,12 @@
   justify-content: center;
 }
 
+.content-left {
+  display: flex;
+  align-items: left;
+  justify-content: flex-start;
+}
+
 .no-appearance {
   -webkit-appearance: none !important;
   -moz-appearance: none !important;
@@ -53,6 +59,10 @@
   margin: 0
 }
 
+.margin-bottom {
+  margin-bottom: 10px;
+}
+
 .no-scroll-y {
   overflow-y: hidden;
 }
@@ -62,11 +72,22 @@
 }
 
 .align-left {
+  margin-left: 5vw;
   text-align: left;
 }
 
 .align-right {
+  margin-left: 5vw;
   text-align: right;
+}
+
+.align-bottom {
+  text-align: left;
+  align-self: left;
+  margin-top: auto;
+  margin-right: 5vw;
+  overflow-x: auto;
+  -webkit-overflow-scrolling:auto;
 }
 
 .pos-relative {
@@ -98,5 +119,12 @@
 
   @include respond-to('medium') {
     display: block;
+  }
+}
+
+.upper {
+  p {
+    text-transform: uppercase;
+    color:$profound-blue;
   }
 }

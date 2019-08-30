@@ -15,3 +15,37 @@
     }
   }
 }
+
+
+.underline {
+  margin: 0;
+  display: inline-block;
+  position: relative;
+}
+.underline:after {
+  content: '';
+  position: absolute;
+  display: block;
+  height: .35em;
+  width: 120%;
+  margin-left: -60%;
+  left: 50%;
+  bottom: -.35em;
+  border-radius: 50%;
+  z-index: -1;
+  background: $main-color;
+}
+.underline:before {
+  content: '';
+  position: absolute;
+  display: block;
+  height: .3em;
+  width: 110%;
+  margin-left: -55%;
+  left: 50%;
+  bottom: -.22em;
+  border-radius: 50%;
+  z-index: -2;
+  background: white;
+  background: linear-gradient(to right, white 25%,$main-color 100%);
+}

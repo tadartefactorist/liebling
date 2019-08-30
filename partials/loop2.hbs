@@ -1,0 +1,79 @@
+{{!-- The template below includes the markup for each post --}}
+
+{{#foreach posts}}
+  {{#is "post"}}
+    <div class="m-recommended-slider__item">
+  {{/is}}
+  {{#if feature_image}}
+    <article class="m-article-card {{post_class}}">
+      <div class="m-article-card__picture" style="background-image: url({{feature_image}});">
+  {{else}}
+    <article class="m-article-card no-picture {{post_class}}">
+      <div class="m-article-card__picture">
+  {{/if}}
+      <a href="{{url}}" class="m-article-card__picture-link" aria-label="Article"></a>
+      <a href="{{primary_author.url}}" class="m-article-card__author js-tooltip" aria-label="Authors" data-tippy-content="{{t "Posted by"}} {{primary_author.name}} {{authors autolink="false" from="2" prefix=(t "with") separator=" , "}}">
+        {{#has tag="photo, videos"}}
+          <div style="background-image: url({{asset "images/video.svg"}});"></div>
+        {{else}}
+       {{#has tag="audio, podcasts"}}
+          <div style="background-image: url({{asset "images/audio.svg"}});"></div>
+        {{else}}
+          <div style="background-image: url({{asset "images/article.svg"}});"></div>
+        {{/has}}
+        {{/has}}
+      </a>
+      {{#if featured}}
+        <a href="{{url}}" class="m-article-card__featured js-tooltip" data-tippy-content="{{t "Featured"}}" aria-label="Article">
+          <span class="icon-star"></span>
+        </a>
+      {{/if}}
+    </div>
+    {{#if primary_tag}}
+      <div class="m-article-card__info">
+        <a href="{{primary_tag.url}}" class="m-article-card__tag">{{primary_tag.name}}</a>
+    {{else}}
+      <div class="m-article-card__info no-tag">
+    {{/if}}
+
+      <a href="{{url}}" class="m-article-card__info-link">
+        <div>
+          <h2 class="m-article-card__title">{{title}}</h2>
+        </div>
+        <div class="m-article-card__excerpt">
+          {{#if custom_excerpt}}
+            {{excerpt words="22"}}
+          {{/if}}
+        </div>
+        <div class="m-article-card-footer">
+          <span>{{t "by"}}</span>
+					{{#has author="count:1"}}
+          {{#primary_author}}
+          <a href="{{primary_author.url}}">{{primary_author.name}}</a>
+
+          {{/primary_author}}
+					{{else}}
+  				{{#has author="count:2"}}
+            ok 2
+    		  {{else}}
+      		{{#has author="count:>2"}}
+	          ok 3
+      		{{/has}}
+  				s{{/has}}
+					{{/has}}
+
+        </div>
+      </a>
+    </div>
+  </article>
+  {{#is "post"}}
+    </div>
+  {{/is}}
+  {{else}}
+    <header class="m-heading no-margin">
+      <h3>{{t "No posts found"}}</h3>
+      <p>
+        {{t "Apparently there are no posts at the moment, check again later."}}
+      </p>
+    </header>
+{{/foreach}}

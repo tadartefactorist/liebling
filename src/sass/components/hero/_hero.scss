@@ -1,14 +1,14 @@
 .m-hero {
   position: relative;
   flex-direction: column;
-  min-height: 365px;
+  max-height: 285px;
   overflow: hidden;
   padding: 100px 0 75px;
   background-color: $light-blue;
   @extend .content-centered;
 
   @include respond-to('medium') {
-    min-height: 400px;
+    max-height: 285px;
     padding: 150px 0 75px;
   }
 
@@ -17,11 +17,28 @@
     background-color: darken($body, 25%);
 
     @include respond-to('medium') {
-      min-height: 297px; /* modified from 460px*/
+      min-height: 285px; /* modified from 460px*/
     }
 
     @include respond-to('extra-large') {
-      min-height: 372px;  /* modified from 565px*/
+      min-height: 285px;  /* modified from 565px*/
+    }
+
+    .m-hero-title {
+      color: $white;
+    }
+  }
+
+  &.without-picture {
+
+    background-image: linear-gradient(315deg, #e7eff9 0%, #cfd6e6 74%);
+
+    @include respond-to('medium') {
+      min-height: 285px; /* modified from 460px*/
+    }
+
+    @include respond-to('extra-large') {
+      min-height: 285px;  /* modified from 565px*/
     }
 
     .m-hero-title {
@@ -53,7 +70,7 @@
   z-index: 2;
 
   @include respond-to('medium') {
-    max-width: 700px;
+    max-width: 80vw;
   }
 
   @include respond-to('extra-large') {
@@ -61,18 +78,51 @@
   }
 }
 
-.m-hero__container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+.m-hero__container, .m-hero-mission {
+    letter-spacing: 0.2px;
+    line-height: 1.5;
+    font-size: 0.938rem;
+    margin-bottom: 20px;
+    text-transform: lowercase;
+
+    @include respond-to('medium') {
+      font-size: 1.125rem;
+    }
+
+    &.bigger {
+      line-height: 1.3;
+      font-size: 1.125rem;
+      margin-bottom: 25px;
+
+      @include respond-to('medium') {
+        font-size: 1.375rem;
+      }
+    }
+
+    &.with-picture, .without-picture {
+      color: $white;
+    }
+
+  p::first-letter {
+    text-transform: capitalize;
+    /*font-size: 2em;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    letter-spacing: 5px;*/
+  }
 }
 
-.m-hero__item {
-  background-color: transparent;
-}
-
-.m-hero__item a {
-  float: right;
+.contribute {
+  a {
+    color:$red;
+    cursor:pointer;
+    transition:border-color .2s ease-out;
+    /*border-bottom:5px solid $main-color;*/
+  }
+  a:hover {
+    color:$main-color;
+    border-color:$red
+  }
 }
 
 .m-hero__meta {
@@ -82,5 +132,78 @@
     display: flex;
     align-items: center;
     justify-content: center;
+  }
+}
+
+/*  hero for posts */
+.m-posthero {
+  position: relative;
+  flex-direction: column;
+  min-height: 365px;
+  overflow: hidden;
+  padding: 100px 0 75px;
+  background-color: $light-blue;
+  @extend .content-left;
+
+  @include respond-to('medium') {
+    min-height: 400px;
+    padding: 150px 0 75px;
+  }
+
+  &.with-picture, .without-picture {
+    color: $white;
+    background-color: darken($body, 25%);
+
+    @include respond-to('medium') {
+      min-height: 90vh; /* modified from 460px*/
+    }
+
+    @include respond-to('extra-large') {
+      min-height: 90vh;  /* modified from 565px*/
+    }
+
+    .m-posthero-title {
+      color: $white;
+      margin-left: 2vw;
+
+    }
+    .m-posthero-description {
+      color: $white;
+      margin-left: 2vw;
+    }
+  }
+}
+
+.m-posthero__picture {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  z-index: 1;
+  opacity: 0.7;
+
+  &.in-post {
+    opacity: 1;
+  }
+}
+
+
+.m-posthero__content {
+  position: relative;
+  border-radius: 5px;
+  padding: 0 $mobile-space;
+  z-index: 2;
+  background: linear-gradient(240deg,rgba(255,255,255,0) 10%, $black 70%);
+
+  @include respond-to('medium') {
+    max-width: 700px;
+  }
+
+  @include respond-to('extra-large') {
+    padding: 0;
   }
 }

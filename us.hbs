@@ -1,0 +1,42 @@
+{{!--
+This template is used for the about page.
+It can not be used also as the home page or the default page.
+--}}
+
+{{!-- The tag below means: insert everything in this file
+into the {body} of the default.hbs template --}}
+{{!< default}}
+{{> header }}
+<div class="main-wrap">
+  <main>
+    <div class="l-content">
+      <div class="l-wrapper">
+        <div class="l-grid centered">
+          <div class="m-intnav-container">
+            <nav role='navigation' class="m-intnav-main" id="main-nav">
+            	<ul id="main-nav-list">
+            		<li><a href="/about/us">{{t "About us"}}</a></li>
+            		<li> <a href="/about/contact">{{t "Contact"}}</a></li>
+            		<li class="{{#if current}} active{{/if}}"><a href="/about/partners">{{t "Partners and Sponsors"}}</a></li>
+            		<li class="{{#if current}} active{{/if}}"><a href="/about/community">{{t "Guidelines"}}</a></li>
+            		<li class="{{#if current}} active{{/if}}"><a href="/about/team">{{t "Team"}}</a></li>
+            	</ul>
+            </nav>
+          </div>
+          </div>
+
+          <article>
+            <div class="l-content">
+              <div class="l-wrapper in-post" data-aos="fade-up" data-aos-delay="300">
+                <div class="l-post-content">
+                  <div class="pos-relative js-post-content">
+                  {{#page}}
+                    {{content}}
+                  {{/page}}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+  </main>
+</div>

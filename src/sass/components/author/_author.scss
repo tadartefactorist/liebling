@@ -48,6 +48,13 @@
   }
 }
 
+.m-author__widget {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+
 .m-author__name {
   color: $dark-blue;
   letter-spacing: 0.2px;

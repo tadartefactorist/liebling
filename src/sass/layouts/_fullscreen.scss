@@ -10,16 +10,17 @@
   padding: 0 $mobile-space;
 
   @include respond-to('medium') {
-    max-width: 500px;
+    max-width: 70vw;
   }
 
   &.in-subscribe-page {
     @include respond-to('medium') {
       padding: 0;
+      max-width: 70vw;
     }
 
     @include respond-to('large') {
-      max-width: 820px;
+      max-width: 70vw;
     }
   }
 }

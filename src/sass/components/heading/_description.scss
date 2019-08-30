@@ -3,6 +3,7 @@
   line-height: 1.3;
   font-size: 0.938rem;
   margin: 0 auto;
+  text-align: left;
 
   @include respond-to('medium') {
     font-size: 1.125rem;

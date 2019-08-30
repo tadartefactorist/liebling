@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700');
+//@import url('https://fonts.googleapis.com/css?family=Noticia+Text');
 
 @import "common/reset";
 @import "common/mixins";
@@ -19,6 +19,7 @@
 @import "components/ui/pagination";
 @import "components/ui/section-title";
 @import "components/ui/back";
+@import "components/ui/applause";
 @import "components/ui/small-text";
 @import "components/ui/no-found";
 @import "components/header/header";
@@ -59,6 +60,7 @@
 @import "components/search/icon";
 @import "components/search/result";
 @import "components/footer";
+@import "components/internal-menu";
 
 @import"components/404/title";
 @import"components/404/subtitle";
